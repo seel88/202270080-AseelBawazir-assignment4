@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aseel Bawazir | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo">Aseel <span>Bawazir</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about" class="section hero">
+        <div class="container about-text">
+            <h1 id="greeting">Hi, I'm Aseel Bawazir</h1>
+            <p class="tagline">Junior Software Engineering Student @ KFUPM | GPA 3.3+</p>
+            <p class="intro-text">
+                Developing secure and efficient software solutions with a focus on 
+                technical logic, BCNF normalization, and full-stack web technologies.
+            </p>
+            <div class="hero-btns">
+                <a href="assets/images/cv.pdf" class="cv-btn" download="Aseel_Bawazir_CV.pdf">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Academic & Live Projects</h2>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProjects('All')">All</button>
+                <button class="filter-btn" onclick="filterProjects('JavaScript')">JavaScript</button>
+                <button class="filter-btn" onclick="filterProjects('HTML/CSS')">HTML/CSS</button>
+                <button class="filter-btn" onclick="filterProjects('Python')">Python</button>
+                <button class="filter-btn" onclick="filterProjects('SQL')">SQL</button>
+            </div>
+
+            <div id="project-grid" class="project-grid">
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="assets/images/ICS326.png" alt="SWE 326">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">SWE 326 | Python</span>
+                        <h3>Program Testing</h3>
+                        <p>AFL++ fuzzing campaigns on bzip2 achieving 45.9% line coverage.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="img-container">
+                        <img src="assets/images/ICS321.png" alt="ICS 321">
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">ICS 321 | SQL</span>
+                        <h3>Event Management System</h3>
+                        <p>EER Diagram design and BCNF-normalized database architecture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-wrapper">
+                <div class="skill-group">
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
+                        <li>React & Node.js</li>
+                        <li>ExpressJS</li>
+                        <li>Tailwind CSS</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML5 & CSS3</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>SQL (PostgreSQL/MySQL)</li>
+                        <li>BCNF Normalization</li>
+                        <li>Schema Design</li>
+                        <li>MongoDB Atlas</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Security & QA</h3>
+                    <ul class="skill-list">
+                        <li>Software Testing (AFL++)</li>
+                        <li>Network Security</li>
+                        <li>Cryptography (RSA, AES)</li>
+                        <li>Fuzzing Campaigns</li>
+                    </ul>
+                </div>
+                <div class="skill-group">
+                    <h3>Software Engineering</h3>
+                    <ul class="skill-list">
+                        <li>Agile (Scrum)</li>
+                        <li>Technical Documentation</li>
+                        <li>GitHub Version Control</li>
+                        <li>Hybrid Methodologies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Aseel Bawazir" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="s202xxxx@kfupm.edu.sa" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Aseel Bawazir | Software Engineering student @ KFUPM</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
