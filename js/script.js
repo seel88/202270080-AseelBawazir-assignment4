@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-theme');
-        themeIcon.textContent = '☀️';
+        if (themeIcon) themeIcon.textContent = '☀️';
     }
 
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        const isDark = document.body.classList.contains('dark-theme');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        themeIcon.textContent = isDark ? '☀️' : '🌙';
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            if (themeIcon) themeIcon.textContent = isDark ? '☀️' : '🌙';
+        });
+    }
 
     // 3. API INTEGRATION (GitHub)
     const fetchGitHubRepos = async () => {
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error("GitHub Fetch Failed");
 
             const repos = await response.json();
+            // Filter out forks and repos without descriptions
             const myWork = repos.filter(repo => !repo.fork && repo.description).slice(0, 4);
 
             myWork.forEach(repo => {
@@ -47,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 grid.appendChild(card);
             });
         } catch (error) {
-            console.error(error);
+            console.error("API Error:", error);
         }
     };
 
@@ -57,7 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const filterText = lang.toLowerCase();
 
         allCards.forEach(card => {
-            const tagText = card.querySelector('.tag').textContent.toLowerCase();
+            const tagEl = card.querySelector('.tag');
+            if (!tagEl) return;
+            
+            const tagText = tagEl.textContent.toLowerCase();
             let isMatch = (filterText === 'all') || 
                           (filterText === 'html/css' && (tagText.includes('html') || tagText.includes('css'))) ||
                           (tagText.includes(filterText));
@@ -70,14 +76,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // 5. VALIDATION
+    // 5. INNOVATION FEATURE: TYPEWRITER EFFECT
+    const initTypewriter = () => {
+        const textElement = document.querySelector('.tagline');
+        if (!textElement) return;
+
+        const phrases = [
+            "Junior Software Engineering Student @ KFUPM",
+            "Aspiring Full-Stack Developer",
+            "Specialty Coffee Enthusiast",
+            "Resident Evil Fan & Gamer"
+        ];
+        
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        const typeEffect = () => {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, characterIndex - 1);
+                characterIndex--;
+                typeSpeed = 50;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, characterIndex + 1);
+                characterIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && characterIndex === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at the end
+            } else if (isDeleting && characterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        };
+
+        typeEffect();
+    };
+
+    // 6. FORM VALIDATION
     const form = document.getElementById('contact-form');
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const msg = document.getElementById('message').value.trim();
             if (msg.length < 15) {
-                alert("Please write a longer message.");
+                alert("Please write a longer message (at least 15 characters).");
             } else {
                 alert("Success! Message sent.");
                 form.reset();
@@ -85,5 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // INITIALIZE ALL
     fetchGitHubRepos();
+    initTypewriter();
 });
