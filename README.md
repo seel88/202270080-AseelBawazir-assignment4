@@ -1,54 +1,60 @@
-# 202270080-AseelBawazir-assignment3
+# 202270080-AseelBawazir-assignment4
 
 ## 📌 Project Description
-This project is a professional portfolio web application developed as part of the Software Engineering curriculum at KFUPM. It showcases technical skills, academic projects, and live development activity by integrating external data and implementing advanced interactive features. 
+This is the final, production-ready personal web application developed for the Software Engineering curriculum at KFUPM. This portfolio serves as a comprehensive showcase of technical expertise, academic projects (such as SWE 326 and ICS 321), and professional growth. 
 
-The application has been evolved from a static site into a dynamic platform that demonstrates modern web development practices, including asynchronous programming and state management.
+The application is fully responsive, optimized for performance, and deployed to a live server to demonstrate real-world readiness.
 
-## 🚀 Key Features
-* **External API Integration:** Connects to the GitHub REST API to fetch and display real-time repository data.
-* **Complex Logic & Filtering:** Includes a custom-built filtering system that allows visitors to sort projects by programming language (JavaScript, Python, SQL, etc.).
-* **State Management:** Implements a Light/Dark mode toggle that persists across page refreshes using `localStorage`.
-* **Advanced Form Validation:** A functional contact form with JavaScript-based validation for email domains and message length.
-* **Dynamic UX:** Features a time-sensitive greeting system and staggered animations for project card reveals.
+## 🚀 Live Demo
+**View the application here:** [https://seel88.github.io/202270080-AseelBawazir-assignment4/](https://seel88.github.io/202270080-AseelBawazir-assignment4/)
+
+## ✨ Key Features & Innovation
+* **Innovation (Typewriter Effect):** A custom-built JavaScript animation that dynamically cycles through professional roles and interests, providing a modern and engaging user experience.
+* **External API Integration:** Real-time data fetching from the GitHub REST API to showcase active development repositories.
+* **Professional Filtering Logic:** Projects are categorized by engineering domains (e.g., Testing, SQL, JavaScript) rather than just languages, reflecting a Software Engineering mindset.
+* **Persistent State Management:** A theme-switching system (Dark/Light mode) that remembers user preferences across sessions using `localStorage`.
+* **Advanced Validation:** Custom contact form logic with KFUPM-specific email validation and length constraints.
 
 ## 🛠️ Tech Stack
-* **Core:** HTML5, CSS3, JavaScript (ES6+)
-* **API:** GitHub REST API
-* **Styling:** Modern CSS Variables, Glassmorphism, and Responsive Grid Layouts
-* **Fonts:** Inter & Poppins (Google Fonts)
+* **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
+* **Deployment:** GitHub Pages (CI/CD via GitHub Actions)
+* **Architecture:** Modular file structure with separated logic, styles, and assets.
+* **Design:** Professional typography (Inter/Poppins), Glassmorphism UI, and responsive grid layouts.
 
 ## 💻 Setup Instructions
-To run this project locally on your machine:
+To run this project locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/aseel-bawazir/202270080-AseelBawazir-assignment3.git](https://github.com/aseel-bawazir/202270080-AseelBawazir-assignment3.git)
+    git clone [https://github.com/seel88/202270080-AseelBawazir-assignment4.git](https://github.com/seel88/202270080-AseelBawazir-assignment4.git)
     ```
 2.  **Open the project:**
     Navigate to the root folder and open `index.html` in any modern web browser.
-3.  **Note:** An active internet connection is required to load the dynamic GitHub projects and professional fonts.
+3.  **Note:** An active internet connection is required for API fetching and Google Fonts.
 
 ## 🤖 AI Integration Summary
-This project was developed with the assistance of AI tools (Gemini/ChatGPT) for:
-* **Code Refactoring:** Transforming static Assignment 2 components into dynamic JavaScript-driven elements.
-* **Problem Solving:** Debugging pathing issues for assets and optimizing asynchronous `fetch` requests.
-* **UI/UX Improvements:** Implementing modern design trends such as Glassmorphism and theme persistence logic.
+AI (Gemini/ChatGPT) was utilized as a collaborative partner for:
+* **Feature Development:** Implementing the custom Typewriter logic and optimizing the Project Filtering system for domain-specific categories.
+* **Deployment & Debugging:** Troubleshooting GitHub Pages deployment issues and ensuring cross-browser compatibility.
+* **Documentation Support:** Structuring professional reports and presentation outlines.
 
-For a full breakdown of the AI collaboration process, please see `docs/ai-usage-report.md`.
+*Detailed logs are available in `docs/ai-usage-report.md`.*
 
 ## 📂 Folder Structure
 ```text
-202270080-AseelBawazir-assignment3/
-├── index.html          # Main application structure
+202270080-AseelBawazir-assignment4/
+├── index.html          # Main entry point (Polished & Deployed)
 ├── css/
-│   └── styles.css      # Professional styling & Dark Mode themes
+│   └── styles.css      # Optimized professional styling
 ├── js/
-│   └── script.js       # API logic, filtering, and state management
+│   └── script.js       # Core logic, API integration, and Innovation feature
 ├── assets/
-│   ├── cv.pdf          # Professional Resume (inside assets/images/)
-│   └── images/         # Project assets (ICS326.png, ICS321.png)
+│   ├── cv.pdf          # Professional CV (located in assets/images/)
+│   └── images/         # Compressed project screenshots
 ├── docs/
-│   ├── ai-usage-report.md          # Detailed documentation of AI collaboration
-│   └── technical-documentation.md  # Detailed technical feature breakdown
-└── README.md           # Project overview and setup
+│   ├── ai-usage-report.md          # Full AI transparency log
+│   └── technical-documentation.md  # Deep dive into architecture
+├── presentation/
+│   ├── slides.pdf       # Project presentation slides
+│   └── demo-video.mp4   # 5-7 minute professional demonstration
+└── README.md           # Project overview and deployment links
