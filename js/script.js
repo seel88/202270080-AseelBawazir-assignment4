@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const phrases = [
             "Junior Software Engineering Student @ KFUPM",
             "Aspiring Full-Stack Developer",
-            "Specialty Coffee Enthusiast"
+            "Passionate about Coding and Testing",
+            "Always Learning, Always Growing"
         ];
         
         let phraseIndex = 0;
