@@ -1,3 +1,4 @@
+/* --- VARIABLES --- */
 :root {
     --primary-blue: #0062ff;
     --accent-blue: #00d2ff;
@@ -14,12 +15,13 @@ body.dark-theme {
     --bg-light: #0f172a;
     --text-main: #f1f5f9;
     --text-muted: #94a3b8;
-    --card-bg: #1e3a8a;
+    --card-bg: #1e293b; /* Refined for better contrast */
     --border-color: #1e293b;
     --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
     --glass-nav: rgba(15, 23, 42, 0.9);
 }
 
+/* --- GLOBAL STYLES --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -27,7 +29,7 @@ body {
     background-color: var(--bg-light);
     color: var(--text-main);
     line-height: 1.6;
-    transition: background-color 0.4s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
     scroll-behavior: smooth;
 }
 
@@ -35,7 +37,7 @@ body {
 .section { padding: 100px 0; text-align: center; }
 .bg-light { background-color: var(--bg-light); border-top: 1px solid var(--border-color); }
 
-/* Navigation */
+/* --- NAVIGATION --- */
 nav {
     background: var(--glass-nav);
     backdrop-filter: blur(12px);
@@ -53,7 +55,7 @@ nav {
 .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: 0.3s; }
 .nav-links a:hover { color: var(--primary-blue); }
 
-/* Hero */
+/* --- HERO SECTION --- */
 .hero h1 {
     font-size: 3.5rem;
     font-family: 'Poppins', sans-serif;
@@ -62,9 +64,9 @@ nav {
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
 }
-.tagline { color: var(--primary-blue); font-weight: 600; font-size: 1.25rem; margin-bottom: 1.5rem; }
+.tagline { color: var(--primary-blue); font-weight: 600; font-size: 1.25rem; margin-bottom: 1.5rem; min-height: 1.5em; }
 
-/* CV Button Styling */
+/* --- BUTTONS --- */
 .hero-btns { margin-top: 2rem; }
 .cv-btn {
     display: inline-block;
@@ -82,7 +84,9 @@ nav {
     box-shadow: 0 6px 20px rgba(0, 98, 255, 0.6);
 }
 
-/* Skills Wrapper */
+.theme-btn { background: none; border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; cursor: pointer; color: var(--text-main); font-size: 1.2rem; }
+
+/* --- SKILLS --- */
 .skills-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -117,7 +121,7 @@ nav {
     border-radius: 1px;
 }
 
-/* Filter Buttons */
+/* --- FILTER BUTTONS --- */
 .filter-container { margin: 2rem 0; display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
 .filter-btn {
     border: 1px solid var(--border-color);
@@ -135,7 +139,7 @@ nav {
     box-shadow: 0 4px 12px rgba(0, 98, 255, 0.3);
 }
 
-/* Project Cards */
+/* --- PROJECT CARDS --- */
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-top: 40px; }
 .project-card {
     background: var(--card-bg);
@@ -147,13 +151,26 @@ nav {
     transition: 0.3s ease;
 }
 .project-card:hover { transform: translateY(-10px); }
-.img-container { height: 180px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; }
-.img-container img { max-width: 100%; height: auto; }
+.img-container { height: 180px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.img-container img { width: 100%; height: 100%; object-fit: cover; }
 .card-body { padding: 24px; }
 .tag { font-size: 0.7rem; font-weight: 800; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 1px; }
 
-/* Form & Footer */
+/* --- DARK MODE CARD OVERRIDES --- */
+body.dark-theme .project-card h3 { color: #ffffff; }
+body.dark-theme .project-card p { color: #cbd5e1; }
+body.dark-theme .tag { color: var(--accent-blue); }
+body.dark-theme .img-container { background: #0f172a; border-bottom: 1px solid #1e293b; }
+
+/* --- FORM & FOOTER --- */
 input, textarea { width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: 10px; background: var(--bg-light); color: var(--text-main); margin-top: 10px; }
-.submit-btn { width: 100%; padding: 16px; background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue)); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; margin-top: 20px; }
-.theme-btn { background: none; border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; cursor: pointer; }
-footer { padding: 40px 0; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue)); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+.submit-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+footer { padding: 40px 0; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; text-align: center; }
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Consider a mobile menu for final production */
+}
