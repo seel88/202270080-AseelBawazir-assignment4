@@ -25,11 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. API INTEGRATION (GitHub)
     const fetchGitHubRepos = async () => {
-        const grid = document.getElementById('project-grid');
-        const username = 'aseel-bawazir';
+    const grid = document.getElementById('project-grid');
+    const username = 'seel88'; 
 
         try {
             const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated`);
+            
             if (!response.ok) throw new Error("GitHub Fetch Failed");
 
             const repos = await response.json();
